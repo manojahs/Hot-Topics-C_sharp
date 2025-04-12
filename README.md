@@ -23,6 +23,7 @@ method overriding basically happens in atleast 2 different class where method na
 <img width="661" alt="image" src="https://github.com/user-attachments/assets/69a14f56-d45f-4472-9aa3-55e981229c87" />
 <img width="644" alt="image" src="https://github.com/user-attachments/assets/6565a3f1-dc2b-42d7-a12a-c1c4e223b873" />
 
+Sealed class basically used to prevent the inheritance and struct are by default sealed so the struct and class cannot inhertic struct 
 
 
 
