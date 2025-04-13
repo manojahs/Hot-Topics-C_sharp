@@ -29,6 +29,9 @@ Sealed class basically used to prevent the inheritance and struct are by default
 
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/a5dd67b6-c5b5-46bd-9060-3b3c46359a07" />
 
+<img width="685" alt="image" src="https://github.com/user-attachments/assets/f9d6d4c1-e7f9-4107-90a0-b1ffa99801c5" />
+
+
 
 
 
