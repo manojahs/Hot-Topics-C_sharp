@@ -25,5 +25,8 @@ method overriding basically happens in atleast 2 different class where method na
 
 Sealed class basically used to prevent the inheritance and struct are by default sealed so the struct and class cannot inhertic struct 
 
+<img width="671" alt="image" src="https://github.com/user-attachments/assets/2cdb0017-12bb-49bf-8251-b157c089452f" />
+
+
 
 
