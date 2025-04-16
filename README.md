@@ -59,6 +59,36 @@ Shared across all instances of the class.
 Only one copy exists in memory for the whole class.
 
 
+Extension Method 
+--------------------
+1)It must be static.
+2)It must be defined in a static class.
+3)The first parameter of the method should specify the type it is extending, using the this keyword.
+
+using System;
+
+namespace ExtensionMethodDemo
+{
+    public static class IntExtensions
+    {
+        // This is the extension method
+        public static bool IsEven(this int number)
+        {
+            return number % 2 == 0;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int example = 42;
+            // Using the extension method
+            bool isEven = example.IsEven();
+            Console.WriteLine(isEven);  // Output: True
+        }
+    }
+}
 
 
 
