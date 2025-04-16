@@ -41,6 +41,24 @@ Sealed class basically used to prevent the inheritance and struct are by default
 
 
 
+Static Class
+------------
+A static class is a class that cannot be instantiated and is meant to contain only static members (methods, properties, fields, etc.).
+Declared using the static keyword.
+All members inside must also be static.
+Cannot be instantiated with new.
+Often used for utility/helper classes (like Math, File, etc.).
+U cann't create extension method for static class but u can create it from instance class of static method
+
+
+Static Value
+-------------
+A static value refers to a static field or property inside a class. It's a variable that belongs to the type itself, rather than to instances of the class.
+Declared using the static keyword.
+Shared across all instances of the class.
+Only one copy exists in memory for the whole class.
+
+
 
 
 
