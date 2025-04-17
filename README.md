@@ -90,6 +90,17 @@ namespace ExtensionMethodDemo
     }
 }
 
+Use of it
+-----------
+1. Callback Methods
+2. Event Handling
+3. Loose Coupling
+4. Strategy Pattern
+Delegates allow you to pass different strategies (methods) into a class or method to change behavior at runtime.
+
+<img width="623" alt="image" src="https://github.com/user-attachments/assets/1e4b082c-d5f5-4e3b-b3ad-267f40ab31a8" />
+
+
 
 
 
