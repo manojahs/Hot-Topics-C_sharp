@@ -100,8 +100,9 @@ Delegates allow you to pass different strategies (methods) into a class or metho
 
 <img width="623" alt="image" src="https://github.com/user-attachments/assets/1e4b082c-d5f5-4e3b-b3ad-267f40ab31a8" />
 
-
 <img width="674" alt="image" src="https://github.com/user-attachments/assets/44ec3d3e-5e6b-45e0-ad8d-6c4f5b4a78a7" />
+
+<img width="679" alt="image" src="https://github.com/user-attachments/assets/0010205e-eebb-48ad-b5ac-17a68f56976e" />
 
 
 
