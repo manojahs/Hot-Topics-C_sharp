@@ -99,8 +99,9 @@ Use of it
 Delegates allow you to pass different strategies (methods) into a class or method to change behavior at runtime.
 
 <img width="623" alt="image" src="https://github.com/user-attachments/assets/1e4b082c-d5f5-4e3b-b3ad-267f40ab31a8" />
-![Uploading image.png…]()
 
+
+<img width="674" alt="image" src="https://github.com/user-attachments/assets/44ec3d3e-5e6b-45e0-ad8d-6c4f5b4a78a7" />
 
 
 
