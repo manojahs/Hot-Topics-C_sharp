@@ -65,6 +65,8 @@ Extension Method
 2)It must be defined in a static class.
 3)The first parameter of the method should specify the type it is extending, using the this keyword.
 
+An extension method in C# allows you to "add" new methods to existing types without modifying their source code or creating a new derived type.
+
 using System;
 
 namespace ExtensionMethodDemo
@@ -125,6 +127,31 @@ public class SampleCollection<T>
     }
 }
 
+Soap vs Rest API
+----------------------
 
+API is the application program interface which allows different software application to communicate each other.
+It defines a set of rules and protocols for building and interacting with software.
+
+SOAP- simple object access protocol (Message Protocol)
+-----------------------
+SOAP is a protocol, which means it has strict rules for messaging. It uses XML for all messages and supports complex operations and services.
+
+REST - Representation State Transfer (Architectural Style)
+----------------------
+It’s an architectural style for designing networked applications. REST relies on standard HTTP methods to access resources.
+
+| Feature            | **REST**                                   | **SOAP**                      |
+| ------------------ | ------------------------------------------ | ----------------------------- |
+| **Style**          | Architectural style                        | Protocol                      |
+| **Message Format** | JSON, XML, HTML, plain text                | XML only                      |
+| **Transport**      | HTTP (commonly)                            | HTTP, SMTP, TCP               |
+| **Security**       | SSL/TLS, OAuth (customizable)              | Built-in WS-Security standard |
+| **Speed**          | Fast, lightweight                          | Slower due to XML parsing     |
+| **Flexibility**    | Highly flexible                            | Rigid (requires WSDL)         |
+| **State**          | Stateless                                  | Can be stateless or stateful  |
+| **Error Handling** | HTTP status codes (200, 404, 500, etc.)    | SOAP faults (XML based)       |
+| **Tooling**        | Easy to use with web tools (Postman, curl) | Needs SOAP clients or proxies |
+Usage                  MObile ,Web, IOT                              Banking , Finance , Legacy system
 
 
