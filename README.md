@@ -47,9 +47,9 @@ A static class is a class that cannot be instantiated and is meant to contain on
 Declared using the static keyword.
 All members inside must also be static.
 Cannot be instantiated with new.
-Often used for utility/helper classes (like Math, File, etc.).
-U cann't create extension method for static class but u can create it from instance class of static method
-
+Often used for utility/helper classes (like Math, File,Logging, etc.).
+U can create a constructor only using static keyword and it cannot have parameter.
+Static class by default its sealed class so that u can't inherit or u can't create a object of it
 
 Static Value
 -------------
