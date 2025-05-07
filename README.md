@@ -202,3 +202,40 @@ In C#, a constructor is a special method that gets called automatically when an 
 | Private       | Restrict object creation        | No                      | Only inside the class                    |
 
 
+What is the significance of this keyword
+-----------------------------------------
+
+The this keyword in C# has several important purposes — it's used to refer to the current instance of a class or struct.
+
+1. Refer to Current Object's Members
+   ---------------------------------
+ private string name;
+
+public Person(string name)
+{
+    this.name = name; // 'this' refers to the instance field
+}
+
+ 2. Pass the Current Object as a Parameter
+    ----------------------------------------
+
+    public void Print()
+{
+    Logger.Log(this); // pass the current object
+}
+
+3. Invoke Other Constructors (Constructor Chaining)
+   ------------------------------
+   public Person() : this("Unknown", 0) {}
+
+public Person(string name, int age)
+{
+    this.name = name;
+    this.age = age;
+}
+
+
+4. Extension Method Syntax
+    --
+
+
