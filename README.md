@@ -145,9 +145,47 @@ It’s an architectural style for designing networked applications. REST relies 
 | **Security**       | SSL/TLS, OAuth (customizable)              | Built-in WS-Security standard |
 | **Speed**          | Fast, lightweight                          | Slower due to XML parsing     |
 | **Flexibility**    | Highly flexible                            | Rigid (requires WSDL)         |
-| **State**          | Stateless                                  | Can be stateless or stateful  |
+| **State**          | Stateless      
+| Can be stateless or stateful  |
 | **Error Handling** | HTTP status codes (200, 404, 500, etc.)    | SOAP faults (XML based)       |
 | **Tooling**        | Easy to use with web tools (Postman, curl) | Needs SOAP clients or proxies |
 Usage                  MObile ,Web, IOT                              Banking , Finance , Legacy system
+
+
+What is Lock and whats the siginificance of it
+----------------------------------------
+In C#, the lock keyword is used to ensure thread safety when multiple threads access a shared resource at the same time. It's part of the synchronization mechanism in multithreaded applications.
+
+Significance of lock in C#
+---------------------------
+✅ 1. Prevents Race Conditions
+When two or more threads access and modify the same data concurrently, you can get unexpected results. lock ensures only one thread can access the code block at a time.
+
+✅ 2. Protects Shared Resources
+Common in situations involving:
+--------------------------------
+Shared variables
+Collections (like lists or dictionaries)
+Files or I/O operations
+
+private static readonly object _lockObj = new object();
+private static int counter = 0;
+
+public void IncrementCounter()
+{
+    lock (_lockObj)
+    {
+        counter++;
+    }
+}
+
+ Important Rules:
+ ----------------------
+Always lock on a private readonly object (object _lock = new object();)
+
+❌ Never lock on this, typeof(SomeClass), or public objects — this can lead to deadlocks or unintended interference.
+Keep the code inside the lock minimal — avoid long or slow operations.
+
+
 
 
