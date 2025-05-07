@@ -187,5 +187,18 @@ Always lock on a private readonly object (object _lock = new object();)
 Keep the code inside the lock minimal — avoid long or slow operations.
 
 
+Different type of constructor
+----------------------------
+
+In C#, a constructor is a special method that gets called automatically when an object is created. Constructors are used to initialize objects, and C# provides several types to support different scenarios.
+
+
+| Type          | Purpose                         | Parameters?             | Called When                              |
+| ------------- | ------------------------------- | ----------------------- | ---------------------------------------- |
+| Default       | Initialize with default values  | No                      | Object created (if no other constructor) |
+| Parameterized | Initialize with specific values | Yes                     | Manually with `new`                      |
+| Copy          | Duplicate object values         | Yes (same class object) | Manually with `new`                      |
+| Static        | Initialize static members       | No                      | Once, automatically                      |
+| Private       | Restrict object creation        | No                      | Only inside the class                    |
 
 
