@@ -1,5 +1,5 @@
 # Hot-Topics
-```
+
 1)Lazy Loading
 ------------------
 Lazy Loading is a design pattern used to delay the initialization of an object or resource until it is actually needed. This helps improve performance, especially when working with resource-intensive operations or data that may not be required immediately.
