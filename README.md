@@ -235,7 +235,23 @@ public Person(string name, int age)
 }
 
 
-4. Extension Method Syntax
+| Feature        | `Parallel.For`                     | `Parallel.ForEach`                    |
+| -------------- | ---------------------------------- | ------------------------------------- |
+| Input          | Numeric range (`int from, int to`) | Collection (`IEnumerable<T>`)         |
+| Iteration type | Index-based (`i`)                  | Element-based (`item`)                |
+| Use case       | Known start/end values             | Iterating over arrays, lists, etc.    |
+| Example        | `Parallel.For(0, 100, i => ...)`   | `Parallel.ForEach(list, item => ...)` |
+
+
+| Feature           | Thread                                        | Task                                           |
+| ----------------- | --------------------------------------------- | ---------------------------------------------- |
+| **Level**         | Low-level (OS-managed)                        | High-level (TPL abstraction)                   |
+| **Creation Cost** | Expensive                                     | Lightweight (uses ThreadPool)                  |
+| **API Support**   | `System.Threading.Thread`                     | `System.Threading.Tasks.Task`                  |
+| **Async Support** | Not directly                                  | Built-in (`async/await`)                       |
+| **Use Case**      | Long-running background work                  | Parallel work, async operations, continuations |
+| **Management**    | You must handle lifecycle (start, join, etc.) | Automatic scheduling, cancellation, exceptions |
+
     --
 ```
 
