@@ -108,6 +108,7 @@ Delegates allow you to pass different strategies (methods) into a class or metho
 
 <img width="621" alt="image" src="https://github.com/user-attachments/assets/f2602760-3d3f-4091-a78d-8200eb141034" />
 
+```
 Indexers
 --------
 In C#, an indexer allows an object to be indexed like an array. Instead of accessing elements with methods like GetItem(), you can use the [] syntax directly on your class, making it more intuitive and clean.
