@@ -252,6 +252,13 @@ public Person(string name, int age)
 | **Use Case**      | Long-running background work                  | Parallel work, async operations, continuations |
 | **Management**    | You must handle lifecycle (start, join, etc.) | Automatic scheduling, cancellation, exceptions |
 
-    --
+ | Aspect                 | Normal Casting                                                | Generic Casting                                                                                            |
+| ---------------------- | ------------------------------------------------------------- | -----------------------------------------------------------------
+| **Compile-time info**  | Compiler knows the exact type                                 | Compiler doesn’t know `T` (unless constrained)                                                            
+| **IL instruction**     | `castclass`, `box`, `unbox.any` depending on type             | Same instructions, but emitted for `T` at JIT time                                                        
+| **Performance**        | Reference cast = cheap, Value cast = boxing/unboxing overhead | Same, but generic keeps it type-safe at runtime                                                           
+| **Constraints effect** | Not applicable                                                | Constraints let compiler optimize IL (e.g., `where T : struct` → emits `unbox.any` instead of `castclass`)
+| **Risk**               | Wrong cast → runtime `InvalidCastException`                   | Same risk, since runtime check still happens                                                               
+
 ```
 
