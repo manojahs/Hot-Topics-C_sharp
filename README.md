@@ -260,7 +260,11 @@ public Person(string name, int age)
 | **Constraints effect** | Not applicable                                                | Constraints let compiler optimize IL (e.g., `where T : struct` → emits `unbox.any` instead of `castclass`)
 | **Risk**               | Wrong cast → runtime `InvalidCastException`                   | Same risk, since runtime check still happens                                                               
 
+Generic Type casting
+-------------------------
+
 Here we are using param as Object bcz we dont knw what is the data thats the reason. if you provide like int input then it works only for int if u provide string it works only for string if u provide like Object it works for any datatype 
+
 
 class Example<T>
 {
@@ -286,9 +290,25 @@ class Program
     }
 }
 
+Normal Type casting
+-------------------
+Reference Type
+----------------
+object obj = "hello";
+string s = (string)obj;   // explicit cast
 
+Compiler inserts an IL (Intermediate Language) instruction like castclass.
+At runtime, the CLR (Common Language Runtime) checks if the actual object (obj) is of type string.
+✅ If yes → succeeds, no copy is made.
 
+Value Type:
+------------
+object obj = 42;     // boxing
+int x = (int)obj;    // unboxing
 
+Boxing = wraps value type (42) into a heap object.
+Unboxing = extracts back to a value type (with runtime check).
+This is more expensive than reference casting
 
 
 
