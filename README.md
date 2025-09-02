@@ -260,5 +260,41 @@ public Person(string name, int age)
 | **Constraints effect** | Not applicable                                                | Constraints let compiler optimize IL (e.g., `where T : struct` → emits `unbox.any` instead of `castclass`)
 | **Risk**               | Wrong cast → runtime `InvalidCastException`                   | Same risk, since runtime check still happens                                                               
 
+Here we are using param as Object bcz we dont knw what is the data thats the reason. if you provide like int input then it works only for int if u provide string it works only for string if u provide like Object it works for any datatype 
+
+class Example<T>
+{
+    public void CastTest(object input)
+    {
+        // Explicit cast
+        T value = (T)input;
+        Console.WriteLine(value);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Example<int> e1 = new Example<int>();
+        e1.CastTest(42);   // works
+
+        Example<string> e2 = new Example<string>();
+        e2.CastTest("hello"); // works
+
+        // e2.CastTest(42); // ❌ runtime InvalidCastException
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 ```
 
