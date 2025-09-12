@@ -321,6 +321,11 @@ Unboxing = extracts back to a value type (with runtime check).
 This is more expensive than reference casting
 
 
+Quick Summary
+----------------------
+ref: must be initialized before passing, used to read+modify.
+out: must be assigned inside method, used to return multiple values.
+
 
 
 
