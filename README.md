@@ -327,6 +327,53 @@ ref: must be initialized before passing, used to read+modify.
 out: must be assigned inside method, used to return multiple values.
 
 
+2nd highest based on deptwise
+------------------------
+
+var employees = new[]
+{
+    new { Name = "Alice", Salary = 5000, Dept = "IT" },
+    new { Name = "Bob", Salary = 7000, Dept = "IT" },
+    new { Name = "Charlie", Salary = 6000, Dept = "HR" },
+    new { Name = "David", Salary = 9000, Dept = "HR" },
+    new { Name = "Eve", Salary = 7000, Dept = "IT" },
+    new { Name = "Frank", Salary = 4000, Dept = "HR" }
+};
+
+
+var result = employees.GroupBy(e => e.Dept).Select(g => new
+{
+    Dept = g.Key,
+    SecondHighestSalary = g.OrderByDescending(e => e.Salary).Select(e => e.Salary).Distinct().Skip(1).FirstOrDefault()
+});
+
+foreach (var item in result)
+{
+    Console.WriteLine($"{item.Dept}: {item.SecondHighestSalary}");
+}
+
+output
+IT: 5000
+HR: 6000
+
+Find the 2nd highest salary
+----------------------------
+var employees = new[]
+{
+    new { Name = "Alice", Salary = 5000},
+    new { Name = "David", Salary = 9000 },
+    new { Name = "Frank", Salary = 4000}
+};
+
+
+var res = employees.OrderByDescending(e => e.Salary).Select(e => e.Salary).Distinct().Skip(1).FirstOrDefault();
+Console.WriteLine(res);
+
+
+
+
+
+
 
 
 
