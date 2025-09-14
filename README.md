@@ -36,7 +36,7 @@ Sealed class basically used to prevent the inheritance and struct are by default
 <img width="655" alt="image" src="https://github.com/user-attachments/assets/289fc64f-d8e6-4b20-8819-da5645ffb8c6" />
 
 
-
+```
 Static Class
 ------------
 A static class is a class that cannot be instantiated and is meant to contain only static members (methods, properties, fields, etc.).
@@ -94,6 +94,7 @@ Use of it
 2. Event Handling
 3. Loose Coupling
 4. Strategy Pattern
+```
 Delegates allow you to pass different strategies (methods) into a class or method to change behavior at runtime.
 
 <img width="623" alt="image" src="https://github.com/user-attachments/assets/1e4b082c-d5f5-4e3b-b3ad-267f40ab31a8" />
