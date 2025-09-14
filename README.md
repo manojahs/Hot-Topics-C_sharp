@@ -268,7 +268,16 @@ public Person(string name, int age)
 | **IL instruction**     | `castclass`, `box`, `unbox.any` depending on type             | Same instructions, but emitted for `T` at JIT time                                                        
 | **Performance**        | Reference cast = cheap, Value cast = boxing/unboxing overhead | Same, but generic keeps it type-safe at runtime                                                           
 | **Constraints effect** | Not applicable                                                | Constraints let compiler optimize IL (e.g., `where T : struct` → emits `unbox.any` instead of `castclass`)
-| **Risk**               | Wrong cast → runtime `InvalidCastException`                   | Same risk, since runtime check still happens                                                               
+| **Risk**               | Wrong cast → runtime `InvalidCastException`                   | Same risk, since runtime check still happens
+
+| Feature         | **Synchronous**                           | **Asynchronous**                         |
+| --------------- | ----------------------------------------- | ---------------------------------------- |
+| **Execution**   | One after another (blocking)              | Can run independently (non-blocking)     |
+| **Waiting**     | Caller must wait                          | Caller can continue doing other work     |
+| **Return Type** | Normal return value (`void`, `int`, etc.) | `Task`, `Task<T>`, or `ValueTask`        |
+| **Use Case**    | CPU-bound, quick operations               | I/O-bound, long-running operations       |
+| **Performance** | Can cause UI freezing, slow response      | More responsive apps, better scalability |
+
 
 Generic Type casting
 -------------------------
