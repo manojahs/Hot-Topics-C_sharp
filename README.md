@@ -450,7 +450,81 @@ Subscribers (OnEmail, OnSMS) react to the event.
 | Access modifiers | Methods can directly assign (`=`) | Only `+=` and `-=` allowed for safety        |
 | Use Case         | Callback mechanism                | Notification system (publisher → subscriber) |
 
+Shallow copy and Deep copy
+----------------------------
+Creates a new object but copies only the immediate fields.
+If the field is a reference type, it just copies the reference (pointer), not the actual object.
+Both objects point to the same referenced instance.
 
+using System;
+
+class Address
+{
+    public string City { get; set; }
+}
+
+class Person
+{
+    public string Name { get; set; }
+    public Address Addr { get; set; }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Person p1 = new Person
+        {
+            Name = "Alice",
+            Addr = new Address { City = "New York" }
+        };
+
+        // Shallow copy using MemberwiseClone()
+        Person p2 = (Person)p1.MemberwiseClone();
+
+        p2.Name = "Bob";
+        p2.Addr.City = "Los Angeles";  // shared reference!
+
+        Console.WriteLine($"{p1.Name}, {p1.Addr.City}"); // Alice, Los Angeles
+        Console.WriteLine($"{p2.Name}, {p2.Addr.City}"); // Bob, Los Angeles
+    }
+}
+
+
+Deepcopy
+------------
+Creates a completely independent copy of the object and all nested objects.
+Reference types are also cloned recursively, not just referenced.
+Both objects are fully independent.
+
+class Address
+{
+    public string City { get; set; }
+}
+
+class Person
+{
+    public string Name { get; set; }
+    public Address Addr { get; set; }
+
+    // Deep copy implementation
+    public Person DeepCopy()
+    {
+        return new Person
+        {
+            Name = this.Name,                   // value copied
+            Addr = new Address { City = this.Addr.City } // new object, not shared
+        };
+    }
+}
+Person p1 = new Person { Name = "Alice", Addr = new Address { City = "New York" } };
+Person p2 = p1.DeepCopy();
+
+p2.Name = "Bob";
+p2.Addr.City = "Los Angeles";
+
+Console.WriteLine($"{p1.Name}, {p1.Addr.City}"); // Alice, New York
+Console.WriteLine($"{p2.Name}, {p2.Addr.City}"); // Bob, Los Angeles
 
 
 
