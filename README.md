@@ -371,8 +371,84 @@ var employees = new[]
 var res = employees.OrderByDescending(e => e.Salary).Select(e => e.Salary).Distinct().Skip(1).FirstOrDefault();
 Console.WriteLine(res);
 
+Delegate and Event
+------------------------
+Delegate
+-----------
+A delegate is a type-safe function pointer in C#.
+It allows methods to be passed as parameters.
+Supports callback methods and multicasting (multiple methods invoked).
 
+using System;
 
+public delegate void Notify(string message);  // delegate definition
+
+class Program
+{
+    static void SendEmail(string msg) => Console.WriteLine("Email: " + msg);
+    static void SendSMS(string msg) => Console.WriteLine("SMS: " + msg);
+
+    static void Main()
+    {
+        Notify notifyHandler = SendEmail;   // assign method
+        notifyHandler += SendSMS;           // multicast
+
+        notifyHandler("Order placed");  
+        // Output:
+        // Email: Order placed
+        // SMS: Order placed
+    }
+}
+
+Event
+-------
+An event is a wrapper around a delegate.
+It provides a publisher-subscriber model (Observer Pattern).
+Ensures only += and -= (subscribe/unsubscribe) are allowed externally — preventing direct invocation outside the declaring class.
+
+using System;
+
+public class Order
+{
+    // declare event using delegate
+    public event Action<string> OrderPlaced;
+
+    public void PlaceOrder(string item)
+    {
+        Console.WriteLine($"Placing order for {item}");
+        OrderPlaced?.Invoke(item); // raise event
+    }
+}
+
+class Program
+{
+    static void OnEmail(string item) => Console.WriteLine($"Email sent for {item}");
+    static void OnSMS(string item) => Console.WriteLine($"SMS sent for {item}");
+
+    static void Main()
+    {
+        var order = new Order();
+
+        // subscribe to event
+        order.OrderPlaced += OnEmail;
+        order.OrderPlaced += OnSMS;
+
+        order.PlaceOrder("Laptop");
+        // Output:
+        // Placing order for Laptop
+        // Email sent for Laptop
+        // SMS sent for Laptop
+    }
+}
+OrderPlaced event can be triggered only inside Order class.
+Subscribers (OnEmail, OnSMS) react to the event.
+
+| Feature          | Delegate                          | Event                                        |
+| ---------------- | --------------------------------- | -------------------------------------------- |
+| What is it?      | Type-safe function pointer        | Wrapper around delegate (pub-sub model)      |
+| Who can invoke?  | Any code with delegate reference  | Only the declaring class can invoke          |
+| Access modifiers | Methods can directly assign (`=`) | Only `+=` and `-=` allowed for safety        |
+| Use Case         | Callback mechanism                | Notification system (publisher → subscriber) |
 
 
 
