@@ -1,5 +1,20 @@
 # Hot-Topics
 
+| Feature                     | **.NET Framework** 🧱                                               | **.NET Core / .NET (5+)** 🚀                                                          |
+| --------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Platform Support**        | 🪟 **Windows only**                                                 | 🌍 **Cross-platform** (Windows, Linux, macOS)                                         |
+| **Deployment**              | Installed as part of Windows OS (shared)                            | Can be **self-contained** (no need for system-wide installation)                      |
+| **Open Source**             | Mostly closed source (some parts open)                              | Fully **open source** on GitHub                                                       |
+| **Performance**             | Good, but limited optimization                                      | **Much faster** — built for high performance & scalability                            |
+| **Application Types**       | Supports classic ASP.NET, WCF, Windows Forms, WPF, Windows Services | Supports **ASP.NET Core**, Blazor, Console, Worker services, MAUI (UI cross-platform) |
+| **Updates & Future**        | ❌ No major new features (only security fixes)                       | ✅ Actively developed and improved (new versions every year)                           |
+| **Hosting**                 | IIS only                                                            | IIS, Kestrel, Nginx, Apache, Docker, Cloud                                            |
+| **Dependency Injection**    | Needs external libraries like Unity or Autofac                      | Built-in DI container 💪                                                              |
+| **Command Line Tools**      | Limited                                                             | Powerful CLI (`dotnet CLI`) — great for DevOps & CI/CD                                |
+| **Side-by-side Versioning** | Not supported easily (one version per machine)                      | ✅ Supported — multiple app versions can run on same machine                           |
+| **Use Case**                | Legacy apps, Windows-only environments                              | Modern apps, Microservices, Cloud, Containers, Cross-platform apps                    |
+
+
 1)Lazy Loading
 ------------------
 Lazy Loading is a design pattern used to delay the initialization of an object or resource until it is actually needed. This helps improve performance, especially when working with resource-intensive operations or data that may not be required immediately.
