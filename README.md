@@ -425,8 +425,11 @@ using System;
 
 public class Order
 {
+
+    public delegate void OrderPlacedHandler(string item);
+
     // declare event using delegate
-    public event Action<string> OrderPlaced;
+    public event OrderPlacedHandler OrderPlaced;
 
     public void PlaceOrder(string item)
     {
