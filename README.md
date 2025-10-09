@@ -415,6 +415,46 @@ class Program
     }
 }
 
+Types of Delegate
+---------------------
+1. Single-cast Delegate
+---------------------
+
+Refers to a single method.
+Invoking the delegate calls exactly one method.
+
+public delegate void MyDelegate(string message);
+MyDelegate del = Method1;
+del("Hello"); 
+
+2. Multicast Delegate
+------------------
+
+Can reference multiple methods.
+Invoking the delegate calls all the methods it references, in order.
+Created by using += to add methods.
+
+MyDelegate del = Method1;
+del += Method2;
+del("Hello");  // Calls Method1 and then Method2
+
+3. Generic Delegates
+----------------------
+Provided by .NET, no need to define your own.
+Two main types:
+
+Action<>: returns void and can take 0 or more parameters.
+Func<>: returns a value and can take 0 or more parameters.
+
+Action<string> actionDel = message => Console.WriteLine(message);
+Func<int, int, int> funcDel = (x, y) => x + y;
+
+4. Lambda Expressions
+-----------------------
+MyDelegate lambdaDel = msg => Console.WriteLine(msg);
+
+
+
 Event
 -------
 An event is a wrapper around a delegate.
