@@ -595,6 +595,8 @@ When classes share common behavior and state (fields/properties).
 ✅ Real-Time Scenario: Payment Gateway
 Imagine an e-commerce system with multiple payment methods:
 
+-> Class can inherit only one abstract class 
+
 public abstract class PaymentProcessor
 {
     public string TransactionId { get; set; }
@@ -657,9 +659,59 @@ public class DatabaseLogger : ILogger
     public void LogError(string message) => Console.WriteLine($"DB Log Error: {message}");
 }
 
+-> Class can inherit Multiple interface
 
+Reflection
+----------------
+In C#, getting metadata values at runtime is done using Reflection.
 
+Reflection allows you to inspect assemblies, types, and members at runtime.
 
+You can get metadata like:
+Class names
+Method names and parameters
+Properties and fields
+Attributes applied to classes, methods, or properties
+You can even invoke methods or create objects dynamically using reflectio
+
+using System;
+using System.Reflection;
+
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public void SayHello()
+    {
+        Console.WriteLine($"Hello, my name is {Name}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Type type = typeof(Person);
+
+        // Get class name
+        Console.WriteLine("Class: " + type.Name);
+
+        // Get properties
+        PropertyInfo[] properties = type.GetProperties();
+        foreach (var prop in properties)
+        {
+            Console.WriteLine("Property: " + prop.Name + ", Type: " + prop.PropertyType);
+        }
+
+        // Get methods
+        MethodInfo[] methods = type.GetMethods();
+        foreach (var method in methods)
+        {
+            Console.WriteLine("Method: " + method.Name);
+        }
+    }
+}
 
 
 
