@@ -584,6 +584,85 @@ p2.Addr.City = "Los Angeles";
 Console.WriteLine($"{p1.Name}, {p1.Addr.City}"); // Alice, New York
 Console.WriteLine($"{p2.Name}, {p2.Addr.City}"); // Bob, Los Angeles
 
+*) When u ll use Abstraction and INterface give me the real time example
+
+1️⃣ Abstraction (Abstract Class)
+
+✅ Purpose
+When you want to provide some default implementation along with method declarations.
+When classes share common behavior and state (fields/properties).
+
+✅ Real-Time Scenario: Payment Gateway
+Imagine an e-commerce system with multiple payment methods:
+
+public abstract class PaymentProcessor
+{
+    public string TransactionId { get; set; }
+
+    // Abstract method - must be implemented by derived class
+    public abstract void ProcessPayment(decimal amount);
+
+    // Concrete method - shared implementation
+    public void LogTransaction()
+    {
+        Console.WriteLine($"Transaction {TransactionId} logged at {DateTime.Now}");
+    }
+}
+
+
+public class PayPalProcessor : PaymentProcessor
+{
+    public override void ProcessPayment(decimal amount)
+    {
+        Console.WriteLine($"Processing PayPal payment of {amount}");
+        LogTransaction();
+    }
+}
+
+public class StripeProcessor : PaymentProcessor
+{
+    public override void ProcessPayment(decimal amount)
+    {
+        Console.WriteLine($"Processing Stripe payment of {amount}");
+        LogTransaction();
+    }
+}
+
+Common fields and methods (TransactionId, LogTransaction) can be shared.
+Each processor can implement its specific behavior.
+
+
+Interface
+------------
+
+When you want to define a contract that multiple unrelated classes can implement.
+No implementation allowed (only method/property signatures).
+A class can implement multiple interfaces.
+
+public interface ILogger
+{
+    void LogInfo(string message);
+    void LogError(string message);
+}
+
+public class FileLogger : ILogger
+{
+    public void LogInfo(string message) => File.AppendAllText("log.txt", message + "\n");
+    public void LogError(string message) => File.AppendAllText("error.txt", message + "\n");
+}
+
+public class DatabaseLogger : ILogger
+{
+    public void LogInfo(string message) => Console.WriteLine($"DB Log Info: {message}");
+    public void LogError(string message) => Console.WriteLine($"DB Log Error: {message}");
+}
+
+
+
+
+
+
+
 
 
 
